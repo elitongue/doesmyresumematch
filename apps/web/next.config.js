@@ -1,5 +1,5 @@
+// apps/web/next.config.js
 const basePath = process.env.BASE_PATH || '';
-
 /** @type {import('next').NextConfig} */
 module.exports = {
   output: 'export',
