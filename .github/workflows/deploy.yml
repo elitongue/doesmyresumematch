@@ -2,11 +2,17 @@ name: Deploy frontend to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - 'apps/web/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
+
+# ✅ Required for deploy-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
@@ -17,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -24,21 +31,25 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+
       - run: pnpm install
       - run: BASE_PATH='/doesmyresumematch' NEXT_PUBLIC_API_BASE='${{ vars.NEXT_PUBLIC_API_BASE }}' pnpm --filter web build
-      - uses: actions/deploy-pages@v4
+
+      # ✅ 'path' goes here (upload step), not on deploy
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/out
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # ❌ no 'path' here
       - id: deployment
         uses: actions/deploy-pages@v4
+        # (optional) you can specify the artifact name if you changed it:
+        # with:
+        #   artifact_name: github-pages
