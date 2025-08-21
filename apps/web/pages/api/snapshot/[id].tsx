@@ -85,13 +85,14 @@ export default async function handler(
       </Document>
     );
 
-    const buffer = await pdf(doc).toBuffer();
+    const blob = await pdf(doc).toBlob();
+    const arrayBuffer = await blob.arrayBuffer();
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader(
       'Content-Disposition',
       `attachment; filename=doesmyresumematch-${id}.pdf`
     );
-    res.send(Buffer.from(buffer));
+    res.send(Buffer.from(arrayBuffer));
   } catch (e) {
     res.status(500).json({ error: 'failed to generate pdf' });
   }

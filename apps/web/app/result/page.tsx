@@ -1,28 +1,30 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import LoadingState from '../../components/LoadingState';
-import ScoreDial from '../../components/ScoreDial';
-import SkillsList from '../../components/SkillsList';
-import GapsList from '../../components/GapsList';
-import ClusterBars from '../../components/ClusterBars';
-import TrustBox from '../../components/TrustBox';
+import LoadingState from '../components/LoadingState';
+import ScoreDial from '../components/ScoreDial';
+import SkillsList from '../components/SkillsList';
+import GapsList from '../components/GapsList';
+import ClusterBars from '../components/ClusterBars';
+import TrustBox from '../components/TrustBox';
 import type { ScoreResponse } from '@doesmyresumematch/shared';
 
 export default function ResultPage() {
-  const params = useParams();
-  const { id } = params as { id: string };
+  const [id, setId] = useState<string | null>(null);
   const [data, setData] = useState<ScoreResponse | null>(null);
   const [showRewrites, setShowRewrites] = useState(false);
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
   const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === '1';
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setId(params.get('id'));
+  }, []);
+
+  useEffect(() => {
+    if (!id) return;
     const stored =
-      typeof window !== 'undefined'
-        ? localStorage.getItem(`match-${id}`)
-        : null;
+      typeof window !== 'undefined' ? localStorage.getItem(`match-${id}`) : null;
     if (stored) {
       setData(JSON.parse(stored) as ScoreResponse);
     }
@@ -37,7 +39,7 @@ export default function ResultPage() {
     });
   }, [data, ANALYTICS_ENABLED, API_BASE]);
 
-  if (!data) return <LoadingState />;
+  if (!id || !data) return <LoadingState />;
 
   const handleExport = async () => {
     const res = await fetch(`/api/snapshot/${id}`);
