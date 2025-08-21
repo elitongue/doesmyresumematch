@@ -1,0 +1,488 @@
+Data/ML:
+  - name: Machine Learning
+    aliases:
+      - ml
+      - machine-learning
+  - name: Deep Learning
+    aliases:
+      - dl
+      - deep-neural-networks
+  - name: Data Engineering
+    aliases:
+      - data-eng
+      - data-pipelines
+  - name: Feature Engineering
+    aliases:
+      - feature-eng
+      - feature-creation
+  - name: Model Evaluation
+    aliases:
+      - model-assessment
+      - validation-metrics
+  - name: Model Deployment
+    aliases:
+      - model-serving
+      - production-deploy
+  - name: Natural Language Processing
+    aliases:
+      - nlp
+      - language-models
+  - name: Computer Vision
+    aliases:
+      - cv
+      - image-recognition
+  - name: Reinforcement Learning
+    aliases:
+      - rl
+      - reward-learning
+  - name: Unsupervised Learning
+    aliases:
+      - clustering-techniques
+      - unsupervised-methods
+  - name: Supervised Learning
+    aliases:
+      - classification-tasks
+      - regression-models
+  - name: Recommendation Systems
+    aliases:
+      - recsys
+      - recommendation-engines
+  - name: Data Mining
+    aliases:
+      - knowledge-discovery
+      - data-patterns
+  - name: Anomaly Detection
+    aliases:
+      - outlier-detection
+      - rare-event-detection
+  - name: Predictive Modeling
+    aliases:
+      - predictive-analytics
+      - forecast-modeling
+Programming:
+  - name: Python
+    aliases:
+      - python-programming
+      - py-lang
+  - name: Java
+    aliases:
+      - java-programming
+      - jvm-language
+  - name: C++
+    aliases:
+      - cpp
+      - c-plus-plus
+  - name: JavaScript
+    aliases:
+      - js
+      - javascript-programming
+  - name: TypeScript
+    aliases:
+      - ts
+      - typescript-programming
+  - name: Go
+    aliases:
+      - golang
+      - go-programming
+  - name: Rust
+    aliases:
+      - rustlang
+      - rust-programming
+  - name: Ruby
+    aliases:
+      - ruby-lang
+      - ruby-programming
+  - name: PHP
+    aliases:
+      - php-lang
+      - php-programming
+  - name: Shell Scripting
+    aliases:
+      - bash-scripting
+      - shell-scripts
+  - name: SQL
+    aliases:
+      - sql-language
+      - structured-query
+  - name: Scala
+    aliases:
+      - scala-lang
+      - scala-programming
+  - name: Kotlin
+    aliases:
+      - kotlin-lang
+      - kotlin-programming
+  - name: C#
+    aliases:
+      - csharp
+      - dotnet-csharp
+  - name: R Programming
+    aliases:
+      - r-lang
+      - r-statistics
+Communication:
+  - name: Technical Writing
+    aliases:
+      - tech-writing
+      - documentation-writing
+  - name: Public Speaking
+    aliases:
+      - presenting
+      - speech-delivery
+  - name: Presentation Skills
+    aliases:
+      - slide-presentations
+      - visual-presenting
+  - name: Stakeholder Communication
+    aliases:
+      - stakeholder-engagement
+      - stakeholder-management
+  - name: Cross-functional Collaboration
+    aliases:
+      - cross-team-work
+      - multi-team-coordination
+  - name: Documentation
+    aliases:
+      - doc-writing
+      - knowledge-base
+  - name: Negotiation
+    aliases:
+      - deal-making
+      - negotiating
+  - name: Storytelling
+    aliases:
+      - narrative-skills
+      - story-crafting
+  - name: Meeting Facilitation
+    aliases:
+      - meeting-leadership
+      - session-facilitation
+  - name: Active Listening
+    aliases:
+      - empathetic-listening
+      - listening-skills
+  - name: Mentoring
+    aliases:
+      - coaching
+      - mentorship
+  - name: Conflict Resolution
+    aliases:
+      - dispute-resolution
+      - conflict-management
+  - name: Remote Communication
+    aliases:
+      - virtual-communication
+      - online-collaboration
+  - name: Feedback Delivery
+    aliases:
+      - constructive-feedback
+      - performance-feedback
+  - name: Client Communication
+    aliases:
+      - client-relations
+      - customer-communication
+Product:
+  - name: Product Management
+    aliases:
+      - prod-mgmt
+      - product-leadership
+  - name: Roadmap Planning
+    aliases:
+      - roadmap-strategy
+      - release-planning
+  - name: User Research
+    aliases:
+      - user-studies
+      - customer-research
+  - name: Requirements Gathering
+    aliases:
+      - requirements-analysis
+      - req-elicitation
+  - name: Agile Methodologies
+    aliases:
+      - agile-practices
+      - scrum-methods
+  - name: Sprint Planning
+    aliases:
+      - sprint-scheduling
+      - iteration-planning
+  - name: Backlog Grooming
+    aliases:
+      - backlog-refinement
+      - story-prioritization
+  - name: Product Strategy
+    aliases:
+      - product-vision
+      - strategy-planning
+  - name: MVP Development
+    aliases:
+      - minimum-viable-product
+      - mvp-build
+  - name: User Stories
+    aliases:
+      - user-story-writing
+      - story-mapping
+  - name: Product Analytics
+    aliases:
+      - product-metrics
+      - usage-analytics
+  - name: Market Analysis
+    aliases:
+      - market-research
+      - competitive-analysis
+  - name: A/B Testing
+    aliases:
+      - ab-testing
+      - split-testing
+  - name: Feature Prioritization
+    aliases:
+      - feature-ranking
+      - priority-planning
+  - name: Product Lifecycle
+    aliases:
+      - lifecycle-management
+      - product-life-cycle
+Domain:
+  - name: Healthcare Domain
+    aliases:
+      - healthcare-industry
+      - medical-domain
+  - name: Finance Domain
+    aliases:
+      - financial-industry
+      - fintech-domain
+  - name: E-commerce Domain
+    aliases:
+      - online-retail
+      - ecommerce-industry
+  - name: Education Domain
+    aliases:
+      - edtech
+      - education-industry
+  - name: Cybersecurity Domain
+    aliases:
+      - security-domain
+      - infosec-industry
+  - name: Marketing Domain
+    aliases:
+      - marketing-industry
+      - digital-marketing
+  - name: Gaming Industry
+    aliases:
+      - game-development
+      - video-game-industry
+  - name: Automotive Industry
+    aliases:
+      - auto-industry
+      - vehicle-sector
+  - name: Supply Chain
+    aliases:
+      - logistics
+      - supply-chain-management
+  - name: Real Estate
+    aliases:
+      - property-industry
+      - realty-sector
+  - name: Manufacturing
+    aliases:
+      - manufacturing-sector
+      - production-industry
+  - name: Social Media
+    aliases:
+      - social-networking
+      - social-platforms
+  - name: Travel Industry
+    aliases:
+      - travel-sector
+      - tourism-industry
+  - name: Telecommunications
+    aliases:
+      - telecom
+      - communications-industry
+  - name: Energy Sector
+    aliases:
+      - energy-industry
+      - power-sector
+Ops/MLOps:
+  - name: Docker
+    aliases:
+      - containerization
+      - docker-containers
+  - name: Kubernetes
+    aliases:
+      - k8s
+      - kubernetes-cluster
+  - name: CI/CD
+    aliases:
+      - continuous-integration
+      - continuous-delivery
+  - name: Monitoring
+    aliases:
+      - system-monitoring
+      - observability
+  - name: Logging
+    aliases:
+      - log-management
+      - log-analysis
+  - name: Model Serving
+    aliases:
+      - model-inference
+      - serving-infrastructure
+  - name: Model Versioning
+    aliases:
+      - model-registry
+      - version-control-models
+  - name: Feature Store
+    aliases:
+      - feature-management
+      - feature-repository
+  - name: Pipeline Orchestration
+    aliases:
+      - workflow-orchestration
+      - pipeline-management
+  - name: Terraform
+    aliases:
+      - infrastructure-as-code
+      - iac-terraform
+  - name: Cloud Deployment
+    aliases:
+      - cloud-hosting
+      - deploying-to-cloud
+  - name: Data Lineage
+    aliases:
+      - data-tracking
+      - lineage-management
+  - name: MLflow
+    aliases:
+      - mlflow-tracking
+      - mlflow-platform
+  - name: Airflow
+    aliases:
+      - apache-airflow
+      - workflow-scheduler
+  - name: Scaling
+    aliases:
+      - auto-scaling
+      - horizontal-scaling
+Analytics/BI:
+  - name: Data Visualization
+    aliases:
+      - data-viz
+      - data-charting
+  - name: Dashboarding
+    aliases:
+      - dashboards
+      - dashboard-creation
+  - name: SQL Analytics
+    aliases:
+      - analytics-sql
+      - sql-analysis
+  - name: ETL Processes
+    aliases:
+      - extract-transform-load
+      - data-pipelines-etl
+  - name: Business Intelligence
+    aliases:
+      - bi-tools
+      - business-intel
+  - name: Forecasting
+    aliases:
+      - predictive-forecasting
+      - time-series-forecasting
+  - name: Data Warehousing
+    aliases:
+      - data-warehouse
+      - warehouse-design
+  - name: Reporting
+    aliases:
+      - report-generation
+      - reporting-tools
+  - name: Metrics Design
+    aliases:
+      - kpi-design
+      - metric-definition
+  - name: Exploratory Data Analysis
+    aliases:
+      - eda
+      - exploratory-analysis
+  - name: Statistical Analysis
+    aliases:
+      - stats-analysis
+      - stat-analysis
+  - name: KPI Tracking
+    aliases:
+      - kpi-monitoring
+      - performance-metrics
+  - name: Self-service Analytics
+    aliases:
+      - self-service-bi
+      - ad-hoc-analysis
+  - name: Spreadsheet Modeling
+    aliases:
+      - excel-modeling
+      - spreadsheet-analysis
+  - name: Cohort Analysis
+    aliases:
+      - cohort-studies
+      - cohort-metrics
+Research/Methods:
+  - name: Statistical Modeling
+    aliases:
+      - stat-modeling
+      - statistical-models
+  - name: Experimental Design
+    aliases:
+      - experiment-planning
+      - study-design
+  - name: Hypothesis Testing
+    aliases:
+      - hypothesis-evaluation
+      - significance-testing
+  - name: Qualitative Research
+    aliases:
+      - qualitative-methods
+      - qual-research
+  - name: Quantitative Research
+    aliases:
+      - quantitative-methods
+      - quant-research
+  - name: Survey Design
+    aliases:
+      - survey-construction
+      - questionnaire-design
+  - name: Causal Inference
+    aliases:
+      - causal-analysis
+      - causal-models
+  - name: Time Series Analysis
+    aliases:
+      - ts-analysis
+      - time-series-modeling
+  - name: Bayesian Methods
+    aliases:
+      - bayesian-statistics
+      - bayes-methods
+  - name: Optimization
+    aliases:
+      - optimization-techniques
+      - optimisation-methods
+  - name: Sampling Techniques
+    aliases:
+      - sample-methods
+      - sampling-methods
+  - name: Data Ethics
+    aliases:
+      - ethical-ai
+      - data-governance
+  - name: Reproducible Research
+    aliases:
+      - reproducibility
+      - reproducible-science
+  - name: Meta-analysis
+    aliases:
+      - meta-research
+      - meta-study
+  - name: Literature Review
+    aliases:
+      - research-review
+      - lit-review
