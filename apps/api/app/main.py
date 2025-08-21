@@ -1,5 +1,6 @@
 import itertools
 import logging
+import os
 import threading
 import time
 from collections import defaultdict
@@ -23,9 +24,13 @@ logging.basicConfig(level=logging.INFO)
 app = FastAPI()
 app.state.settings = settings
 
+allowed = os.getenv(
+    "ALLOW_ORIGINS", "https://doesmyresumematch-web.onrender.com"
+).split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[o.strip() for o in allowed if o.strip()],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )

@@ -6,6 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "apps/api"))
 
 os.environ.setdefault("DEV_MODE", "1")
+os.environ.setdefault("ALLOW_ORIGINS", "http://localhost:3000")
 
 from app.main import app  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
@@ -57,4 +58,7 @@ def test_cors_preflight():
         },
     )
     assert res.status_code == 200
-    assert res.headers.get("access-control-allow-origin") == "*"
+    assert (
+        res.headers.get("access-control-allow-origin")
+        == "http://localhost:3000"
+    )
