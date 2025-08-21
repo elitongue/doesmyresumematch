@@ -22,10 +22,10 @@ jobs:
           cache: pnpm
 
       - run: pnpm install -w
-
+      
       - name: Prepare Playwright cache
         run: mkdir -p ~/.cache/ms-playwright
-
+      
       - name: Restore Playwright cache
         uses: actions/cache@v4
         with:
