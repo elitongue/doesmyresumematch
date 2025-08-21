@@ -1,3 +1,12 @@
+# render.yaml — Git-aware deploys on Render
+
+databases:
+  - name: dmr-db
+    plan: free
+    region: oregon
+    postgresMajorVersion: 16
+    ipAllowList: []
+
 services:
   # --- FastAPI backend ---
   - type: web
@@ -18,35 +27,25 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: ALLOW_ORIGINS
-        # Allow your frontend origin(s). Update with your custom domain later if you add one.
+        # Allow your frontend origin (update if you add a custom domain)
         value: https://doesmyresumematch-web.onrender.com
 
-  # --- Postgres (pgvector if you use it) ---
-  - type: postgres
-    name: dmr-db
-    plan: free
-    ipAllowList: []
-
-  # --- Static Next.js frontend (Next.js 'export') ---
+  # --- Static Next.js frontend (uses Next.js 'export') ---
   - type: static_site
     name: doesmyresumematch-web
     envVars:
       - key: NEXT_PUBLIC_API_BASE
         value: https://doesmyresumematch-api.onrender.com
       - key: BASE_PATH
-        value: ""    # empty because site is served at root on Render
+        value: ""   # hosted at root on Render
     buildCommand: |
       corepack enable
       corepack prepare pnpm@9 --activate
       pnpm install -w
       pnpm --filter web build
     publishPath: apps/web/out
-    # Optional: SPA-style fallback if you use client-side routing
+    # SPA-friendly routing (keeps client-side routes working)
     routes:
-      - type: redirect
-        source: /_next/static/*
-        destination: /_next/static/:splat
       - type: rewrite
         source: /*
         destination: /index.html
-
