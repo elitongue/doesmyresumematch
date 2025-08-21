@@ -17,7 +17,7 @@ repos:
         name: prettier
         entry: npx prettier --write
         language: node
-        types: [javascript, jsx, ts, tsx, json, css, md]
+        types: [javascript, jsx, ts, tsx, json, css, markdown]
       - id: eslint
         name: eslint
         entry: npx eslint
