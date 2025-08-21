@@ -33,9 +33,29 @@ This project turns a skill-mismatch framework (cluster alignment, required-skill
 
 ## Quickstart
 
-1. `cp .env.example .env` and fill in values
-2. `docker compose up --build` → brings up DB, API, Web
-3. Visit `http://localhost:3000` for the web UI
+1. `cp .env.example .env` and fill in values.
+2. Install dependencies:
+   - `pnpm install -w` for the web app and shared packages
+   - `pip install -r apps/api/requirements.txt` for the API
+3. Start the API: `uvicorn app.main:app --reload --app-dir apps/api`
+4. Start the web app: `pnpm --filter web dev`
+5. Visit `http://localhost:3000` for the web UI
+
+## Deploying
+
+### API on Render
+
+Create a new **Web Service** in Render pointed at `apps/api` with:
+
+- **Build command:** `pip install -r requirements.txt`
+- **Start command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Set environment variables like `DATABASE_URL` and `OPENAI_API_KEY` in the Render dashboard.
+
+### Frontend on GitHub Pages
+
+Static exports are published to <https://elitongue.github.io/doesmyresumematch> using GitHub Pages. On pushes to `main`, GitHub Actions builds `apps/web` with `BASE_PATH=/doesmyresumematch` and deploys the contents of `apps/web/out`.
+
+Set the repository variable `NEXT_PUBLIC_API_BASE` to your Render API URL so the client can reach it.
 
 ## Privacy ✱
 
