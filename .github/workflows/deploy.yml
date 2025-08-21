@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - run: pnpm install -w
+      - run: pnpm install
       - run: BASE_PATH='/doesmyresumematch' NEXT_PUBLIC_API_BASE='${{ vars.NEXT_PUBLIC_API_BASE }}' pnpm --filter web build
       - uses: actions/deploy-pages@v4
         with:
