@@ -1,23 +1,25 @@
-# render.yaml — Git-aware deploys on Render
+# render.yaml — Git-aware deploys on Render (GitHub + Render only)
 
 databases:
   - name: dmr-db
-    plan: free
     region: oregon
-    postgresMajorVersion: 16
+    postgresMajorVersion: "17"
     ipAllowList: []
 
 services:
-  # --- FastAPI backend ---
+  # --- FastAPI backend (Python web service) ---
   - type: web
     name: doesmyresumematch-api
-    env: python
-    plan: free
+    runtime: python         # (prefer 'runtime' over legacy 'env')
     region: oregon
+    rootDir: apps/api       # monorepo: watch only this folder for this service
     buildCommand: |
-      pip install -r apps/api/requirements.txt
+      pip install -r requirements.txt
+    # Run DB migrations just before the app starts
+    preDeployCommand: |
+      alembic upgrade head
     startCommand: |
-      cd apps/api && alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+      uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /healthz
     envVars:
       - key: DATABASE_URL
@@ -27,24 +29,26 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: ALLOW_ORIGINS
-        # Allow your frontend origin (update if you add a custom domain)
+        # allow your frontend origin (update if you add a custom domain)
         value: https://doesmyresumematch-web.onrender.com
 
-  # --- Static Next.js frontend (uses Next.js 'export') ---
-  - type: static_site
+  # --- Next.js frontend (Static Site) ---
+  - type: web
     name: doesmyresumematch-web
-    envVars:
-      - key: NEXT_PUBLIC_API_BASE
-        value: https://doesmyresumematch-api.onrender.com
-      - key: BASE_PATH
-        value: ""   # hosted at root on Render
+    runtime: static         # ✅ static site
+    # Monorepo build: install at workspace root, then build the web app
     buildCommand: |
       corepack enable
       corepack prepare pnpm@9 --activate
       pnpm install -w
       pnpm --filter web build
-    publishPath: apps/web/out
-    # SPA-friendly routing (keeps client-side routes working)
+    staticPublishPath: ./apps/web/out   # ✅ correct field name for static sites
+    envVars:
+      - key: NEXT_PUBLIC_API_BASE
+        value: https://doesmyresumematch-api.onrender.com
+      - key: BASE_PATH
+        value: ""    # site served at root on Render
+    # SPA-friendly routing for App Router / client routes
     routes:
       - type: rewrite
         source: /*
