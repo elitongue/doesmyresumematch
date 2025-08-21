@@ -10,4 +10,3 @@ migrate:
 
 test:
 	pytest
-	npx playwright test

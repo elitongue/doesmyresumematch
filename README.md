@@ -1,6 +1,5 @@
 # doesmyresumematch.com
 
-[![CI](https://github.com/smol-ai/doesmyresumematch/actions/workflows/ci.yml/badge.svg)](https://github.com/smol-ai/doesmyresumematch/actions/workflows/ci.yml)
 **Upload your resume + a job posting → get a transparent match score with strengths & gaps.**
 
 This project turns a skill-mismatch framework (cluster alignment, required-skill coverage, and seniority fit) into a simple, explainable score (0–100) plus actionable suggestions.
@@ -37,10 +36,6 @@ This project turns a skill-mismatch framework (cluster alignment, required-skill
 1. `cp .env.example .env` and fill in values
 2. `docker compose up --build` → brings up DB, API, Web
 3. Visit `http://localhost:3000` for the web UI
-
-## GitHub Pages
-
-The repository includes a workflow to build and publish the static web app to GitHub Pages. Every push to `main` runs the `deploy.yml` workflow, which exports the Next.js site and uploads `apps/web/out` for hosting.
 
 ## Privacy ✱
 
