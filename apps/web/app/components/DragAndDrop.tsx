@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 interface Props {
   onFile: (file: File) => void;
@@ -8,11 +8,14 @@ interface Props {
 
 export default function DragAndDrop({ onFile }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const [uploadedFileName, setUploadedFileName] = useState('');
 
   const handleFiles = useCallback(
     (files: FileList | null) => {
       if (!files || files.length === 0) return;
-      onFile(files[0]);
+      const file = files[0];
+      onFile(file);
+      setUploadedFileName(file.name);
     },
     [onFile],
   );
@@ -27,7 +30,11 @@ export default function DragAndDrop({ onFile }: Props) {
       }}
       onClick={() => inputRef.current?.click()}
     >
-      <p>Drag & drop resume PDF or click to select</p>
+      {uploadedFileName ? (
+        <p className="text-green-600">Uploaded: {uploadedFileName}</p>
+      ) : (
+        <p>Drag & drop resume PDF or click to select</p>
+      )}
       <input
         ref={inputRef}
         type="file"
