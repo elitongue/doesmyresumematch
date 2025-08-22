@@ -72,7 +72,7 @@ export default function Page() {
       const matchData = await matchRes.json();
       const id = Date.now().toString();
       localStorage.setItem(`match-${id}`, JSON.stringify(matchData));
-      router.push(`/result/${id}`);
+      router.push(`/result?id=${id}`);
     } catch (e) {
       console.error(e);
       alert('Request failed');
